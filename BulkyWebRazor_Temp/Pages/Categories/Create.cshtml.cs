@@ -5,9 +5,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BulkyWebRazor_Temp.Pages.Categories
 {
+    [BindProperties]
     public class CreateModel : PageModel
     {
-        [BindProperties]
         private readonly Data2.ApplicationDbContext _db;
         public Category Category { get; set; }
         public CreateModel(ApplicationDbContext db)
@@ -17,11 +17,11 @@ namespace BulkyWebRazor_Temp.Pages.Categories
         public void OnGet()
         {
         }
-
         public IActionResult OnPost()
         {
             _db.Categories.Add(Category);
             _db.SaveChanges();
+            TempData["success"] = "Category Created successfully";
             return RedirectToPage("Index");
              
         }
