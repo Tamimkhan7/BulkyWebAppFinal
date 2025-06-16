@@ -99,9 +99,13 @@ namespace BulkyWebAppFinal.Controllers
             TempData["success"] = "Category Deleted successfully";
             return RedirectToAction("Index");         
       
-        } 
+        }
 
-
+        public class Category
+        {
+            public object DisplayOrder { get; internal set; }
+            public string? Name { get; internal set; }
+        }
     }
 }
  
