@@ -1,4 +1,4 @@
-﻿namespace BulkyWebAppFinal.Data
+﻿namespace BulkyBook.Data
 {
     public class DbContext
     {
