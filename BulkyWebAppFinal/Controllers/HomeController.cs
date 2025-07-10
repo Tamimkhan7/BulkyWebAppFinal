@@ -1,5 +1,5 @@
-using System.Diagnostics;
-using BulkyBook.Models;
+﻿using System.Diagnostics;
+using Bulky.Models;      // <-- এখানে Bulky.Models ইউজ করো, BulkyBook.Models নয়
 using Microsoft.AspNetCore.Mvc;
 
 namespace BulkyBook.Controllers

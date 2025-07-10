@@ -1,4 +1,4 @@
-﻿@using static BulkyBook.Controllers.CategoryController
+﻿@using Bulky.Models
 @model Category
 
 <div class="card shadow border-0 mt-4">
@@ -13,40 +13,33 @@
         <form method="post" class="row">
             <input asp-for="Id" hidden />
             <div class="border p-3 mt-4">
-                @* asp-validation-summary basically holo required filled, oi required filled na fullfill hole continue korbe na  *@
-                @* <div asp-validation-summary="ModelOnly"></div> *@
+
                 <div class="form-floating py-2 col-12">
-                    @* asp-for convert the type, which is same as work with the type  *@
                     <input asp-for="Name" class="form-control border-0 shadow" />
                     <label asp-for="Name" class="ms-2"></label>
-                    @* text-danger is useed for showing  red color of my error message  *@
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
 
                 <div class="form-floating py-2 col-12">
-                    @* asp-for convert the type, which is same as work with the type  *@
                     <input asp-for="DisplayOrder" class="form-control border-0 shadow" />
                     <label asp-for="DisplayOrder" class="ms-2"></label>
-                    @* text-danger is useed for showing  red color of my error message  *@
                     <span asp-validation-for="DisplayOrder" class="text-danger"></span>
                 </div>
 
                 <div class="row mt-2">
-                    @* karon boostrap contain 12 col on a row, thats we can divided 6*2 of the submit and back button  *@
-                    <div class="col-6 col-md-3"> <button type="submit" class="btn btn-primary form-control">Update</button></div>
-                    <div class="col-6 col-md-3">  <a asp-controller="Category" asp-action="Index" class="btn btn-outline-primary border form-control">Back To List</a></div>
+                    <div class="col-6 col-md-3">
+                        <button type="submit" class="btn btn-primary form-control">Update</button>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <a asp-controller="Category" asp-action="Index" class="btn btn-outline-primary border form-control">Back To List</a>
+                    </div>
                 </div>
 
             </div>
         </form>
-
     </div>
 </div>
 
-
-
 @section Scripts {
-    @{
-        <partial name="_ValidationScriptsPartial" />
-    }
+    <partial name="_ValidationScriptsPartial" />
 }

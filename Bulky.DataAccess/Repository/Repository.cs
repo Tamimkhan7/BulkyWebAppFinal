@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Bulky.DataAccess.Repository
 {
-    public class Repository<T>  : IRepository<T> where T : class
+    public class Repository<T> : IRepository<T> where T : class
     {
         private readonly ApplicationDbContext _db;
 
@@ -21,19 +21,19 @@ namespace Bulky.DataAccess.Repository
             this.dbset = _db.Set<T>();
             //_db.Categories = dbset
         }
-        public void Add( T entity)
+        public void Add(T entity)
         {
             // Implementation for adding an entity to the database
-          dbset.Add(entity);
+            dbset.Add(entity);
             //_db.SaveChanges(); // Save changes to the database
         }
 
         public T Get(System.Linq.Expressions.Expression<Func<T, bool>> filter)
         {
             // Implementation for retrieving an entity based on a filter
-             IQueryable<T> query = dbset;
-             query = query.Where(filter);
-             return query.FirstOrDefault(); // Return the first matching entity or null if none found
+            IQueryable<T> query = dbset;
+            query = query.Where(filter);
+            return query.FirstOrDefault(); // Return the first matching entity or null if none found
         }
 
         public IEnumerable<T> GetAll()
@@ -46,7 +46,7 @@ namespace Bulky.DataAccess.Repository
         public void Remove(T entity)
         {
             // Implementation for removing an entity from the database
-                dbset.Remove(entity);
+            dbset.Remove(entity);
             //_db.SaveChanges(); // Save changes to the database
         }
 
@@ -55,4 +55,5 @@ namespace Bulky.DataAccess.Repository
             // Implementation for removing a range of entities from the database
             dbset.RemoveRange(entity);
         }
+    }
 }
